@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Functionality upon click-->
+    <!--<item android:state_pressed="true">-->
+    <!--android:shape="rectangle"-->
+    <!--<shape>-->
+    <!--&lt;!&ndash;Set the background color upon click&ndash;&gt;-->
+    <!--<solid-->
+    <!--android:color="#c4176a"-->
+    <!--/>-->
+
+    <!--&lt;!&ndash;Set curved corners&ndash;&gt;-->
+    <!--<corners-->
+    <!--android:radius="80dp"-->
+    <!--/>-->
+    <!--</shape>-->
+
+    <!--</item>-->
+
+    <!--Default button styles-->
+    <item>
+        <shape>
+            <!--Set the background color-->
+            <solid
+                android:color="#fffa0c"
+                />
+
+            <!--Set curved corners-->
+            <corners
+                android:radius="50dp"
+                />
+
+            <!--Set padding for the internal contents-->
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="10dp"
+                android:bottom="10dp"
+                />
+        </shape>
+    </item>
+</selector>

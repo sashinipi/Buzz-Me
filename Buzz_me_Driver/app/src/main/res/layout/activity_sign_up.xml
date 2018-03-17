@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/background"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.buzz_me.sashinip.buzz_me_driver.SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25dp"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:paddingTop="50dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/lblDriverLoginUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:gravity="left|start"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:text="User Name" />
+
+            <EditText
+                android:id="@+id/txtDriverLoginUserName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/lblDriverLoginNIC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:gravity="left|start"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:text="NIC Number" />
+
+            <EditText
+                android:id="@+id/txtDriverLoginNIC"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/lblDriverLoginAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:gravity="left|start"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:text="Address" />
+
+            <EditText
+                android:id="@+id/txtDriverLoginAddress"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/lblDriverLoginPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:gravity="left|start"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:text="password" />
+
+            <EditText
+                android:id="@+id/txtDriverLoginPassword"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <TextView
+                android:id="@+id/lblDriverLoginPasswordConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:gravity="left|start"
+                android:textColor="@color/fontColor"
+                android:fontFamily="casual"
+                android:text="ReEnter password" />
+
+            <EditText
+                android:id="@+id/txtDriverLoginPasswordConfirm"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="100dp"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btnDriverSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:text="Sign Up"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/style_button"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

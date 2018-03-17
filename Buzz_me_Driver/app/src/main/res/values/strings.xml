@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Buzz_Me</string>
+    <string name="title_activity_show_fuel_station">Map</string>
+    <string name="title_activity_during_ride">Map</string>
+</resources>
