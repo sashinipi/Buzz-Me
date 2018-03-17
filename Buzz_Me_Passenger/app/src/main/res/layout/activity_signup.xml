@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mariamzaheer.passenger.SignUp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:fontFamily="casual"
+                android:text="Sign Up"
+                android:textColor="@color/title"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutOne"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/titleTextView"
+                android:layout_marginStart="40dp">
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="casual"
+                    android:singleLine="false"
+                    android:text="Name : "
+                    android:textAlignment="center"
+                    android:textColor="@color/title"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:layout_width="230dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/nameEditText"
+                    android:textColor="@color/title"
+                    android:layout_below="@+id/nameTextView" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutTwo"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/linearLayoutOne"
+                android:layout_marginStart="40dp" >
+
+                <TextView
+                    android:id="@+id/mobileNumberTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="casual"
+                    android:singleLine="false"
+                    android:text="Mobile Number : "
+                    android:textAlignment="center"
+                    android:textColor="@color/title"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="165dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/mobileNumberEditText"
+                    android:textColor="@color/title"
+                    android:layout_below="@+id/mobileNumberTextView"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutFour"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/linearLayoutTwo"
+                android:layout_marginStart="40dp" >
+
+                <TextView
+                    android:id="@+id/passwordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="casual"
+                    android:singleLine="false"
+                    android:text="Enter Password : "
+                    android:textAlignment="center"
+                    android:textColor="@color/title"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/passwordEditText"
+                    android:textColor="@color/title"
+                    android:layout_below="@id/linearLayoutFour"
+                    android:inputType="textPassword"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutFive"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/linearLayoutTwo"
+                android:layout_marginStart="40dp" >
+
+                <TextView
+                    android:id="@+id/reEnterPasswordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="casual"
+                    android:singleLine="false"
+                    android:text="Re-Enter Password : "
+                    android:textAlignment="center"
+                    android:textColor="@color/title"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/reEnterPasswordEditText"
+                    android:textColor="@color/title"
+                    android:layout_below="@id/reEnterPasswordTextView"
+                    android:inputType="textPassword"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutSix"
+                android:layout_below="@id/linearLayoutFive"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signupButton"
+                    android:text="Sign Up"
+                    android:fontFamily="casual"
+                    android:textColor="@color/background"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="150dp"
+                    android:background="@drawable/styled_button"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutSeven"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/linearLayoutSix">
+
+                <TextView
+                    android:id="@+id/signUpTextView"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="casual"
+                    android:singleLine="false"
+                    android:text="By clicking on 'Sign Up' you agree to provide required personal data to 'Buzz Me'"
+                    android:textAlignment="center"
+                    android:textColor="@color/title"
+                    android:textSize="14sp"
+                    android:layout_marginStart="60dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

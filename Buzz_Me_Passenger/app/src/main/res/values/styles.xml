@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!--Change the color of the cursor-->
+        <item name="colorAccent">@color/background</item>
+
+        <!--Change the text color of the search view-->
+        <item name="android:editTextColor">@color/background</item>
+
+    </style>
+</resources>
+
+
+
