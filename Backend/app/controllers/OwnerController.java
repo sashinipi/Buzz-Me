@@ -4,7 +4,10 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
 
-//@CorsComposition.Cors
+/**
+ * Controller class for handling the REST interface for all owner related calls.
+ *
+ */
 public class OwnerController extends Controller {
 
     public Result test() {
