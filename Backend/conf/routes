@@ -2,14 +2,19 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+
+# Passenger
+#
+POST        /passenger/addNew        @controllers.PassengerController.addNewPassenger()
+
 # Home page
 #GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file            controllers.Assets.at(path="/public", file)
 
 
-GET        /owner               @controllers.OwnerController.test()
+GET         /owner                   @controllers.OwnerController.test()
 ## Routes
 ## This file defines all application routes (Higher priority routes first)
 ## ~~~~
@@ -18,7 +23,6 @@ GET        /owner               @controllers.OwnerController.test()
 #
 ## Passenger
 #
-#POST          passenger/addNew
 #PUT           passenger/edit
 #DELETE        passenger/delete
 #GET           passenger/getPassengerByID
