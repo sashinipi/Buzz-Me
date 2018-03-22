@@ -5,33 +5,36 @@
 
 # Passenger
 #
-POST        /passenger/addNew                   @controllers.PassengerController.addNewPassenger()
-PUT         /passenger/edit/:passengerID        @controllers.PassengerController.editPassenger(passengerID : Integer)
-DELETE      /passenger/delete                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
-GET         /passenger/getPassengerByID         @controllers.PassengerController.getPassengerByID(passengerID : Integer)
-GET         /passenger/login                    @controllers.PassengerController.getPassengerLogin
-PUT         /passenger/rating                   @controllers.PassengerController.updateRating()
+# ~ Create a new passenger ~
+POST          /passenger/addNew                   @controllers.PassengerController.addNewPassenger()
+#
+# ~ Edit a passenger ~
+PUT           /passenger/edit/:passengerID        @controllers.PassengerController.editPassenger(passengerID : Integer)
+#
+# ~ Delete a passenger ~
+DELETE        /passenger/delete                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
+#
+# ~ Get passenger details by ID ~
+GET           /passenger/getPassengerByID         @controllers.PassengerController.getPassengerByID(passengerID : Integer)
+#
+# ~ Verify passenger login ~
+GET           /passenger/login                    @controllers.PassengerController.getPassengerLogin
+#
+# ~ Update rating given by a passenger ~
+PUT           /passenger/rating                   @controllers.PassengerController.updateRating()
+
 
 # Home page
 #GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                       controllers.Assets.at(path="/public", file)
+GET           /assets/*file                       controllers.Assets.at(path="/public", file)
 
 
-GET         /owner                              @controllers.OwnerController.test()
-## Routes
-## This file defines all application routes (Higher priority routes first)
-## ~~~~
-#
-#
-#
+GET           /owner                              @controllers.OwnerController.test()
+
 ## Passenger
 #
-
-
-
-
 #GET           passenger/closestBusStop/:currentLocation/:destination
 #GET           passenger/recommendation/:mood/:destination
 #GET           passenger/getBusById/:busID // Return rating and ETA
@@ -57,17 +60,4 @@ GET         /owner                              @controllers.OwnerController.tes
 #GET           owner/login
 #GET           owner/checkReportByMonth/:year/:month // Return number of rides
 #GET           owner/checkReportByDate/:year/:month:/date // Return number of rides
-#
-#
-##
-### Anychart Scala Play template, other routes are from play-scala project template
-##GET           /                    controllers.ChartController.index
-### An example controller showing a sample home page
-##GET           /default             controllers.HomeController.index
-### An example controller showing how to use dependency injection
-##GET           /count               controllers.CountController.count
-### An example controller showing how to write asynchronous code
-##GET           /message             controllers.AsyncController.message
-##
-### Map static resources from the /public folder to the /assets URL path
-##GET           /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+
