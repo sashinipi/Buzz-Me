@@ -1,14 +1,23 @@
 package dto;
 
 /**
- * Class representing a passenger.
+ * Class representing a passenger with the passenger ID.
  *
  */
-public class PassengerDTO {
+public class PassengerIDDTO {
 
+    private int id;
     private String name;
     private int mobileNumber; // TODO: Verify type
     private String password; // TODO: Verify type
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
