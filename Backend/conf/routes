@@ -35,13 +35,13 @@ GET         /owner                   @controllers.OwnerController.test()
 #
 ## Driver
 #
-#POST          driver/addNew
-#PUT           driver/edit
-#DELETE        driver/delete
-#GET           driver/getDriverByID
-#GET           driver/login
-#POST          driver/startRide // Return ride ID
-#PUT           driver/updateSpeed/:rideID/:speed
+#POST          driver/addNew                            @controllers.PassengerController.addNewDriver()
+#PUT           driver/edit                              @controllers.PassengerController.editDriver()
+#DELETE        driver/delete                            @controllers.PassengerController.deleteDriver()
+#GET           driver/getDriverByID                     @controllers.PassengerController.getBusbyId()
+#GET           driver/login                             @controllers.PassengerController.loginDriver()
+#POST          driver/startRide // Return ride ID       @controllers.PassengerController.startRideDriver()
+#PUT           driver/updateSpeed/:rideID/:speed        @controllers.PassengerController.updateSpeedOfTheDriver()
 #
 ## Owner
 #
