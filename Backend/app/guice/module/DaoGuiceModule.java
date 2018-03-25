@@ -3,6 +3,8 @@ package guice.module;
 import com.google.inject.AbstractModule;
 import dao.passenger.PassengerDao;
 import dao.passenger.PassengerDaoImpl;
+import dao.rating.RatingDao;
+import dao.rating.RatingDaoImpl;
 
 /**
  * Bindings for DAO classes.
@@ -13,5 +15,6 @@ public class DaoGuiceModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(PassengerDao.class).to(PassengerDaoImpl.class);
+        bind(RatingDao.class).to(RatingDaoImpl.class);
     }
 }
