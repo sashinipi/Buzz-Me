@@ -45,12 +45,13 @@ GET           /assets/*file                       controllers.Assets.at(path="/p
 ## Driver
 #
 #POST          driver/addNew                            @controllers.PassengerController.addNewDriver()
-#PUT           driver/edit                              @controllers.PassengerController.editDriver()
-#DELETE        driver/delete                            @controllers.PassengerController.deleteDriver()
-#GET           driver/getDriverByID                     @controllers.PassengerController.getBusbyId()
+#PUT           driver/edit/:driverID                    @controllers.PassengerController.editDriver(driverID: Integer)
+#DELETE        driver/delete/:driverID                  @controllers.PassengerController.deleteDriver(driverID: Integer)
+#GET           driver/getBusByID/:driverID              @controllers.PassengerController.getBusbyId(driverID: Integer)
 #GET           driver/login                             @controllers.PassengerController.loginDriver()
 #POST          driver/startRide // Return ride ID       @controllers.PassengerController.startRideDriver()
-#PUT           driver/updateSpeed/:rideID/:speed        @controllers.PassengerController.updateSpeedOfTheDriver()
+#PUT           driver/updateSpeed/:rideID/:speed        @controllers.PassengerController.updateSpeedOfTheDriver(rideID: Integer, speed: String)
+#PUT           driver/updateLocation/:rideID/:location  @controllers.PassengerController.updateSpeedOfTheDriver(rideID: Integer, location: String )
 #
 ## Owner
 #
