@@ -6,15 +6,16 @@ package dto;
  */
 public class RatingDTO {
 
-    private int passengerID;
+    private int ratingID;
     private int rating;
+    private int busID;
 
-    public int getPassengerID() {
-        return passengerID;
+    public int getRatingID() {
+        return ratingID;
     }
 
-    public void setPassengerID(int passengerID) {
-        this.passengerID = passengerID;
+    public void setRatingID(int ratingID) {
+        this.ratingID = ratingID;
     }
 
     public int getRating() {
@@ -23,5 +24,13 @@ public class RatingDTO {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getBusID() {
+        return busID;
+    }
+
+    public void setBusID(int busID) {
+        this.busID = busID;
     }
 }

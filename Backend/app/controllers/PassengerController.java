@@ -134,7 +134,6 @@ public class PassengerController extends Controller {
         return result;
     }
 
-    // TODO: Not completed.
     /**
      * Update the rating for the bus.
      *
