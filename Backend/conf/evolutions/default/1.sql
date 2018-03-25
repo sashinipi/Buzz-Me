@@ -12,6 +12,18 @@ create table buzz_me.passenger (
   constraint pk_passenger primary key (passenger_id)
 );
 
+create table buzz_me.rating (
+  rating_id                     integer auto_increment not null,
+  rating                        integer not null,
+  bus_id                        integer not null,
+  count                         integer not null,
+  time_stamp                    datetime(6) not null,
+  constraint pk_rating primary key (rating_id)
+);
+
+
+# --- !Downs
+
 create table buzz_me.driver (
   driver_id                     integer auto_increment not null,
   driver_name                   varchar(255) not null,
@@ -28,4 +40,6 @@ create table buzz_me.driver (
 drop table if exists buzz_me.driver;
 
 drop table if exists buzz_me.passenger;
+
+drop table if exists buzz_me.rating;
 
