@@ -5,6 +5,7 @@ package service.driver;
  */
 
 import dto.DriverDTO;
+import dto.MessageDTO;
 
 /**
  * Interface defining driver related calls.
@@ -20,7 +21,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String addNewDriver(DriverDTO driverDTO);
+    MessageDTO addNewDriver(DriverDTO driverDTO);
 
 
     /**
@@ -29,7 +30,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String editDriver(DriverDTO driverDTO);
+    MessageDTO editDriver(DriverDTO driverDTO, int driverID);
 
 
     /**
@@ -38,7 +39,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String deleteDriver(DriverDTO driverDTO);
+    MessageDTO deleteDriver(DriverDTO driverDTO, int driverID);
 
 
     /**
@@ -47,7 +48,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String getBusbyId(DriverDTO driverDTO);
+    MessageDTO getBusbyId(DriverDTO driverDTO);
 
 
     /**
@@ -56,7 +57,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String loginDriver(DriverDTO driverDTO);
+    MessageDTO loginDriver(DriverDTO driverDTO);
 
 
     /**
@@ -65,7 +66,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String startRideDriver(DriverDTO driverDTO);
+    MessageDTO startRideDriver(DriverDTO driverDTO);
 
 
     /**
@@ -74,5 +75,7 @@ public interface DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-    String updateSpeedOfTheBus(DriverDTO driverDTO);
+    MessageDTO updateSpeedOfTheBus(DriverDTO driverDTO);
+
+    DriverDTO getDriverByID(int driverID) throws Exception;
 }
