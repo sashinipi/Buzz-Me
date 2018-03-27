@@ -3,7 +3,9 @@ package service.passenger;
 import dto.MessageDTO;
 import dto.PassengerDTO;
 import dto.PassengerIDDTO;
-import dto.RatingDTO;
+import dto.RecommendedBusDTO;
+
+import java.util.List;
 
 /**
  * Interface defining passenger related calls.
@@ -54,10 +56,11 @@ public interface PassengerService {
     MessageDTO verifyPassenger(PassengerIDDTO passengerIDDTO);
 
     /**
-     * Update the rating.
+     * Retrieve filtered recommended buses.
      *
-     * @param ratingDTO DTO containing rating information
-     * @return          Message DTO containing the status
+     * @param mood        Mood of the passenger
+     * @param destination Destination
+     * @return            List of bus recommendations
      */
-    MessageDTO updateRating(RatingDTO ratingDTO);
+    List<RecommendedBusDTO> getRecommendedBuses(String mood, String destination);
 }

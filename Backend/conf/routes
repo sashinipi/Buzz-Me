@@ -7,37 +7,40 @@
 # Passenger
 #
 # ~ Create a new passenger ~
-POST          /passenger/addNew                   @controllers.PassengerController.addNewPassenger()
+POST          /passenger/addNew                                   @controllers.PassengerController.addNewPassenger()
 #
 # ~ Edit a passenger ~
-PUT           /passenger/edit/:passengerID        @controllers.PassengerController.editPassenger(passengerID : Integer)
+PUT           /passenger/edit/:passengerID                        @controllers.PassengerController.editPassenger(passengerID : Integer)
 #
 # ~ Delete a passenger ~
-DELETE        /passenger/delete                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
+DELETE        /passenger/delete                                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
 #
 # ~ Get passenger details by ID ~
-GET           /passenger/getPassengerByID/        @controllers.PassengerController.getPassengerByID(passengerID : Integer)
+GET           /passenger/getPassengerByID/                        @controllers.PassengerController.getPassengerByID(passengerID : Integer)
 #
 # ~ Verify passenger login ~
-GET           /passenger/login                    @controllers.PassengerController.getPassengerLogin
+GET           /passenger/login                                    @controllers.PassengerController.getPassengerLogin
 #
 # ~ Update rating given by a passenger ~
-PUT           /passenger/rating                   @controllers.PassengerController.updateRating()
+PUT           /passenger/rating                                   @controllers.PassengerController.updateRating()
+#
+# ~ Get recommendations for the bus ~
+GET           /passenger/recommendation/:mood/:destination        @controllers.PassengerController.getRecommendation(mood: String, destination : String)
 
 
 # Home page
 #GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET           /assets/*file                       controllers.Assets.at(path="/public", file)
+GET           /assets/*file                                       controllers.Assets.at(path="/public", file)
 
 
 #GET           /owner                              @controllers.OwnerController.test()
 
 ## Passenger
 #
-#GET           passenger/closestBusStop/:currentLocation/:destination
-#GET           passenger/recommendation/:mood/:destination
+
+
 #GET           passenger/getBusById/:busID // Return rating and ETA
 
 #

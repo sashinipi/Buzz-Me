@@ -3,17 +3,16 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
-import dto.MessageDTO;
-import dto.PassengerDTO;
-import dto.PassengerIDDTO;
-import dto.RatingDTO;
+import dto.*;
 import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import service.passenger.PassengerService;
+import service.rating.RatingService;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Controller class for handling the REST interface for all passenger related calls.
@@ -22,12 +21,14 @@ import java.io.IOException;
 public class PassengerController extends Controller {
 
     private final PassengerService passengerService;
+    private final RatingService ratingService;
 
     private ObjectMapper mapper = new ObjectMapper();
 
     @Inject
-    public PassengerController(PassengerService passengerService) {
+    public PassengerController(PassengerService passengerService, RatingService ratingService) {
         this.passengerService = passengerService;
+        this.ratingService = ratingService;
     }
 
     /**
@@ -147,7 +148,7 @@ public class PassengerController extends Controller {
             JsonNode jsonNode = request().body().asJson();
 
             RatingDTO ratingDTO = mapper.readValue(jsonNode.toString(), RatingDTO.class);
-            messageDTO = passengerService.updateRating(ratingDTO);
+            messageDTO = ratingService.updateRating(ratingDTO);
 
         } catch (IOException e) {
             Logger.error("Couldn't map JSON to object", e);
@@ -157,4 +158,15 @@ public class PassengerController extends Controller {
         return result;
     }
 
+    /**
+     * Retrieve the recommendations for a bus.
+     *
+     * @return Result object
+     */
+    public Result getRecommendation(String mood, String destination) {
+        Result result;
+        List<RecommendedBusDTO> recommendedBuses = passengerService.getRecommendedBuses(mood, destination);
+        result = ok(Json.toJson(recommendedBuses));
+        return result;
+    }
 }
