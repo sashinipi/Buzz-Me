@@ -24,6 +24,21 @@ create table buzz_me.rating (
 
 # --- !Downs
 
+create table buzz_me.driver (
+  driver_id                     integer auto_increment not null,
+  driver_name                   varchar(255) not null,
+  driver_nic                    varchar(255) not null,
+  driver_address                varchar(255) not null,
+  driver_password               varchar(255) not null,
+  time_stamp                    datetime(6) not null,
+  constraint pk_driver primary key (driver_id)
+);
+
+
+# --- !Downs
+
+drop table if exists buzz_me.driver;
+
 drop table if exists buzz_me.passenger;
 
 drop table if exists buzz_me.rating;
