@@ -16,7 +16,7 @@ PUT           /passenger/edit/:passengerID                        @controllers.P
 DELETE        /passenger/delete                                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
 #
 # ~ Get passenger details by ID ~
-GET           /passenger/getPassengerByID/                        @controllers.PassengerController.getPassengerByID(passengerID : Integer)
+GET           /passenger/getPassengerByID/:passengerID             @controllers.PassengerController.getPassengerByID(passengerID : Integer)
 #
 # ~ Verify passenger login ~
 GET           /passenger/login                                    @controllers.PassengerController.getPassengerLogin
