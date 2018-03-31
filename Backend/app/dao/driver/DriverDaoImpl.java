@@ -8,6 +8,13 @@ import play.Logger;
  * Created by Sashinip on 3/25/2018.
  */
 public class DriverDaoImpl implements DriverDao{
+
+    /**
+     * Add new Driver
+     * @param driverModel
+     * @return driverID
+     * @throws Exception
+     */
     @Override
     public int addDriver(DriverModel driverModel) throws Exception {
 
@@ -20,6 +27,11 @@ public class DriverDaoImpl implements DriverDao{
         }
     }
 
+    /**
+     * Edit Driver
+     * @param driverModel
+     * @throws Exception
+     */
     @Override
     public void editDriver(DriverModel driverModel) throws Exception {
 
@@ -32,6 +44,11 @@ public class DriverDaoImpl implements DriverDao{
 
     }
 
+    /**
+     * Delete Driver
+     * @param driverModel
+     * @throws Exception
+     */
     @Override
     public void deleteDriver(DriverModel driverModel) throws Exception {
 
@@ -44,6 +61,12 @@ public class DriverDaoImpl implements DriverDao{
 
     }
 
+    /**
+     * Get driver details
+     * @param passengerID
+     * @return DriverModel
+     * @throws Exception
+     */
     @Override
     public DriverModel getDriverByID(int passengerID) throws Exception {
         try {
