@@ -1,12 +1,9 @@
 package service.ride;
 
 import dao.ride.RideDao;
-import dto.DriverDTO;
 import dto.MessageDTO;
-import dto.PassengerDTO;
 import dto.RideDTO;
 import io.ebean.Ebean;
-import models.PassengerModel;
 import models.RideModel;
 
 import java.util.Date;
