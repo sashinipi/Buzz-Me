@@ -1,6 +1,7 @@
 package com.example.tharshini.buzzmeforowner;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.initial_load);
+
+
 
         checkReport = (Button) findViewById(R.id.checkReport);
         profileSetting = (Button) findViewById(R.id.profileSetting);
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         checkReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Intent intent = new Intent(MainActivity.this, CheckDailyReports.class);
                 startActivity(intent);
             }
         });
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         profileSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Main6Activity.class);
+                Intent intent = new Intent(MainActivity.this, Profile.class);
                 startActivity(intent);
             }
         });

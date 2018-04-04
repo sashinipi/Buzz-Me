@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Buzz Me for Owner"
+        android:label="Buzz Me"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -16,11 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main4Activity" />
-        <activity android:name=".Main5Activity" />
-        <activity android:name=".Main6Activity" />
+        <activity android:name=".CheckDailyReports" />
+        <activity android:name=".DisplayGraphForTheDay" />
+        <activity android:name=".CheckMonthlyReports" />
+        <activity android:name=".DisplayGraphForTheMonth" />
+        <activity android:name=".Profile" />
     </application>
 
 </manifest>
