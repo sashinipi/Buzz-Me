@@ -16,10 +16,10 @@ public class OwnerModel extends Model {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(nullable = false , name = "Owner_Id")
-    private int passengerID;
+    private int ownerID;
 
     @Column(nullable = false , name = "Owner_Name")
-    private String passengerName;
+    private String ownerName;
 
     @Column(nullable = false , name = "Owner_Contact_Number")
     private int mobileNumber;
@@ -36,7 +36,7 @@ public class OwnerModel extends Model {
     //get and set all owner variables
 
     public int getOwnerID() {
-        return passengerID;
+        return ownerID;
     }
 
     public void setOwnerID(int ownerID) {

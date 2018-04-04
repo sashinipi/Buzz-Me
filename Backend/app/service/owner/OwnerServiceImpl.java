@@ -2,6 +2,16 @@ package service.owner;
 
 //import
 
+import com.google.inject.Inject;
+import dao.owner.OwnerDao;
+import dto.MessageDTO;
+import dto.OwnerDTO;
+import dto.OwnerIDDTO;
+import io.ebean.Ebean;
+import models.OwnerModel;
+
+import java.util.Date;
+
 /**
  * Implementation of owner service.
  */
@@ -28,7 +38,7 @@ public class OwnerServiceImpl implements OwnerService {
             ownerModel.setOwnerName(ownerDTO.getName());
             ownerModel.setMobileNumber(ownerDTO.getMobileNumber());
             ownerModel.setPassword(ownerDTO.getPassword());
-            //ownerModel.setRegNumber (ownerDTO.getRegNumber());
+//            ownerModel.setRegNumber(ownerDTO.getRegNumber());
             ownerModel.setTimeStamp(new Date());
 
             int ownerID = ownerDao.addNewOwner(ownerModel);
@@ -59,7 +69,7 @@ public class OwnerServiceImpl implements OwnerService {
             ownerByID.setOwnerName(ownerDTO.getName());
             ownerByID.setMobileNumber(ownerDTO.getMobileNumber());
             ownerByID.setPassword(ownerDTO.getPassword());
-            ownerModel.setRegNumber (ownerDTO.getRegNumber());
+//            ownerByID.setRegNumber(ownerDTO.getRegNumber());
             ownerByID.setTimeStamp(new Date());
 
             ownerDao.updateOwner(ownerByID);

@@ -10,7 +10,6 @@
 # ~ Create a new passenger ~
 POST          /passenger/addNew                                   @controllers.PassengerController.addNewPassenger()
 #
-
 # ~ Edit a passenger ~
 PUT           /passenger/edit/:passengerID                        @controllers.PassengerController.editPassenger(passengerID : Integer)
 #
@@ -18,7 +17,7 @@ PUT           /passenger/edit/:passengerID                        @controllers.P
 DELETE        /passenger/delete                                   @controllers.PassengerController.deletePassenger(passengerID : Integer)
 #
 # ~ Get passenger details by ID ~
-GET           /passenger/getPassengerByID/:passengerID             @controllers.PassengerController.getPassengerByID(passengerID : Integer)
+GET           /passenger/getPassengerByID/:passengerID            @controllers.PassengerController.getPassengerByID(passengerID : Integer)
 #
 # ~ Verify passenger login ~
 GET           /passenger/login                                    @controllers.PassengerController.getPassengerLogin
@@ -29,56 +28,32 @@ PUT           /passenger/rating                                   @controllers.P
 # ~ Get recommendations for the bus ~
 GET           /passenger/recommendation/:mood/:destination        @controllers.PassengerController.getRecommendation(mood: String, destination : String)
 
-
-# Home page
-#GET     /                           controllers.Application.index
-
-# Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
-
-
-#GET           /owner                              @controllers.OwnerController.test()
-
-## Passenger
-#
-
-
 #GET           passenger/getBusById/:busID // Return rating and ETA
-
 #
 #
-## Driver
 #
-
+# Driver
 #
 # ~ Create a new Driver ~
-POST          /driver/addNew                            @controllers.DriverController.addNewDriver()
-
+POST          /driver/addNew                                      @controllers.DriverController.addNewDriver()
 #
 # ~ Edit Driver ~
-PUT           /driver/edit/:driverID                    @controllers.DriverController.editDriver(driverID: Integer)
-
+PUT           /driver/edit/:driverID                              @controllers.DriverController.editDriver(driverID: Integer)
 #
 # ~ Delete Driver ~
-DELETE        /driver/delete/:driverID                  @controllers.DriverController.deleteDriver(driverID: Integer)
-
+DELETE        /driver/delete/:driverID                            @controllers.DriverController.deleteDriver(driverID: Integer)
 #
 # ~ Get Driver by ID ~
-GET           /driver/getDriverByID/:driverID              @controllers.DriverController.getDriverByID(driverID: Integer)
-
+GET           /driver/getDriverByID/:driverID                     @controllers.DriverController.getDriverByID(driverID: Integer)
 #
 # ~ Get Bus by ID ~
-GET           /driver/getBusByID/:busID              @controllers.DriverController.getBusbyId(busID: Integer)
-
+GET           /driver/getBusByID/:busID                           @controllers.DriverController.getBusbyId(busID: Integer)
 #
 # ~ Login Driver ~
-GET           /driver/login                             @controllers.DriverController.loginDriver()
-
+GET           /driver/login                                       @controllers.DriverController.loginDriver()
 #
 # ~ Get Ride by ID ~
-GET           /driver/getRideByID/:rideID              @controllers.DriverController.getRideByID(rideID: Integer)
-
-
+GET           /driver/getRideByID/:rideID                         @controllers.DriverController.getRideByID(rideID: Integer)
 #
 # ~ Start Ride ~
 #POST          /driver/startRide                         @controllers.DriverController.startRideDriver()
@@ -109,3 +84,7 @@ GET           /driver/getRideByID/:rideID              @controllers.DriverContro
 #GET           owner/login
 #GET           owner/checkReportByMonth/:year/:month // Return number of rides
 #GET           owner/checkReportByDate/:year/:month:/date // Return number of rides
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file                                       controllers.Assets.at(path="/public", file)
+

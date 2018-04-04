@@ -25,6 +25,7 @@ public class ServiceGuiceModule extends AbstractModule {
         bind(DriverService.class).to(DriverServiceImpl.class);
         bind(RideService.class).to(RideServiceImpl.class);
         bind(RatingService.class).to(RatingServiceImpl.class);
+        bind(RideService.class).to(RideServiceImpl.class);
 
     }
 }

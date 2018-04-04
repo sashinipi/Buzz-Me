@@ -1,5 +1,6 @@
 package service.ride;
 
+import com.google.inject.Inject;
 import dao.ride.RideDao;
 import dto.MessageDTO;
 import dto.RideDTO;
@@ -15,6 +16,7 @@ public class RideServiceImpl implements RideService {
 
     private final RideDao rideDao;
 
+    @Inject
     public RideServiceImpl(RideDao passengerDao, RideDao rideDao) {
         this.rideDao = rideDao;
     }

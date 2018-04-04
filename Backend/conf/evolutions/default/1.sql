@@ -13,6 +13,16 @@ create table buzz_me.driver (
   constraint pk_driver primary key (driver_id)
 );
 
+create table buzz_me.owner (
+  owner_id                      integer auto_increment not null,
+  owner_name                    varchar(255) not null,
+  owner_contact_number          integer not null,
+  password                      varchar(255) not null,
+  registration_number           varchar(255) not null,
+  time_stamp                    datetime(6) not null,
+  constraint pk_owner primary key (owner_id)
+);
+
 create table buzz_me.passenger (
   passenger_id                  integer auto_increment not null,
   passenger_name                varchar(255) not null,
@@ -42,10 +52,11 @@ create table buzz_me.ride (
 );
 
 
-
 # --- !Downs
 
 drop table if exists buzz_me.driver;
+
+drop table if exists buzz_me.owner;
 
 drop table if exists buzz_me.passenger;
 
