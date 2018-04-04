@@ -106,6 +106,7 @@ public class RideServiceImpl implements RideService {
 
     /**
      * Update PeopleCounter
+     *
      * @param rideDTO
      * @param rideID
      * @param location
