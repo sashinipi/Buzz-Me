@@ -1,15 +1,14 @@
 package dto;
 
 /**
- * Created by Sashinip on 3/24/2018.
+ * Class representing a passenger with the owner ID.
  */
-public class DriverDTO {
+public class OwnerIDDTO {
 
     private int id;
     private String name;
-    private String NICNumber;
-    private String address;
-    private String password;
+    private int mobileNumber; // TODO: Verify type
+    private String password; // TODO: Verify type
 
     public int getId() {
         return id;
@@ -27,20 +26,12 @@ public class DriverDTO {
         this.name = name;
     }
 
-    public String getNICNumber() {
-        return NICNumber;
+    public int getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setNICNumber(String NICNumber) {
-        this.NICNumber = NICNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setMobileNumber(int mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
     public String getPassword() {
@@ -50,5 +41,4 @@ public class DriverDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

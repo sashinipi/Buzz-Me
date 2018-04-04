@@ -16,8 +16,8 @@ import service.ride.RideService;
 
 import java.io.IOException;
 
-import static play.mvc.Results.ok;
 
+import static play.mvc.Results.ok;
 /**
  * Controller class for handling the REST interface for all driver related calls.
  *

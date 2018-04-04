@@ -33,7 +33,6 @@ public class DriverModel extends Model{
     @Column(nullable = false , name = "time_stamp")
     private Date timeStamp;
 
-
     public int getId() {
         return id;
     }
