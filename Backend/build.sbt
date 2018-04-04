@@ -13,6 +13,4 @@ libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.36"
 libraryDependencies += jdbc
 libraryDependencies += guice
 routesGenerator := InjectedRoutesGenerator
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
-
-      
+unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )

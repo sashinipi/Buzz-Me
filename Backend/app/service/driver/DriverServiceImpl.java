@@ -1,5 +1,6 @@
 package service.driver;
 
+import com.google.inject.Inject;
 import dao.driver.DriverDao;
 import dto.DriverDTO;
 import dto.MessageDTO;
@@ -21,6 +22,7 @@ public class DriverServiceImpl implements DriverService {
 
     private final DriverDao driverDao;
 
+    @Inject
     public DriverServiceImpl(DriverDao driverDao) {
         this.driverDao = driverDao;
     }
@@ -32,7 +34,6 @@ public class DriverServiceImpl implements DriverService {
      * @param driverDTO DTO containing passenger information
      * @return             Success or fail status
      */
-
     @Override
     public MessageDTO addNewDriver(DriverDTO driverDTO) {
         MessageDTO messageDTO = new MessageDTO();
@@ -55,6 +56,12 @@ public class DriverServiceImpl implements DriverService {
         return messageDTO;
     }
 
+    /**
+     * Edit driver.
+     *
+     * @param driverDTO DTO containing passenger information
+     * @return             Success or fail status
+     */
     @Override
     public MessageDTO editDriver(DriverDTO driverDTO, int driverID) {
         MessageDTO messageDTO = new MessageDTO();
@@ -80,8 +87,14 @@ public class DriverServiceImpl implements DriverService {
         return messageDTO;
     }
 
+    /**
+     * Delete driver.
+     *
+     * @param driverID DTO containing passenger information
+     * @return             Success or fail status
+     */
     @Override
-    public MessageDTO deleteDriver(DriverDTO driverDTO, int driverID) {
+    public MessageDTO deleteDriver(int driverID) {
         MessageDTO messageDTO = new MessageDTO();
 
         try {
@@ -96,11 +109,22 @@ public class DriverServiceImpl implements DriverService {
         return messageDTO;
     }
 
+    /**
+     * Get bus by ID.
+     *
+     * @param busID DTO containing passenger information
+     * @return             Success or fail status
+     */
     @Override
-    public MessageDTO getBusbyId(DriverDTO driverDTO) {
+    public MessageDTO getBusbyId(int busID) {
         return null;
     }
 
+    /**
+     * Login Driver
+     * @param driverDTO DTO containing passenger information
+     * @return
+     */
     @Override
     public MessageDTO loginDriver(DriverDTO driverDTO) {
         MessageDTO messageDTO = new MessageDTO();
@@ -126,25 +150,21 @@ public class DriverServiceImpl implements DriverService {
         return messageDTO;
     }
 
-    @Override
-    public MessageDTO startRideDriver(DriverDTO driverDTO) {
-        return null;
-    }
-
-    @Override
-    public MessageDTO updateSpeedOfTheBus(DriverDTO driverDTO) {
-        return null;
-    }
-
+    /**
+     * Get driver by ID.
+     *
+     * @param driverID DTO containing passenger information
+     * @return             Success or fail status
+     */
     @Override
     public DriverDTO getDriverByID(int driverID) throws Exception {
-        DriverDTO passengerDTO = new DriverDTO();
+        DriverDTO driverDTO = new DriverDTO();
 
-        DriverModel passengerByID = driverDao.getDriverByID(driverID);
+        DriverModel driverByID = driverDao.getDriverByID(driverID);
 
-        passengerDTO.setName(passengerByID.getName());
-        passengerDTO.setAddress(passengerByID.getAddress());
-        passengerDTO.setNICNumber(passengerByID.getNICNumber());
-        return passengerDTO;
+        driverDTO.setName(driverByID.getName());
+        driverDTO.setAddress(driverByID.getAddress());
+        driverDTO.setNICNumber(driverByID.getNICNumber());
+        return driverDTO;
     }
 }
