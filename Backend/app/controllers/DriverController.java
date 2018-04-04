@@ -37,7 +37,7 @@ public class DriverController extends Controller {
 
     /**
      * Add New Driver.
-     *
+     * Passsword is not encrypted
      * @return Result object
      */
     public Result addNewDriver() {
@@ -60,6 +60,7 @@ public class DriverController extends Controller {
 
     /**
      * Edit Driver
+     * Password is not encrypted
      * @param driverID
      * @return Result Object
      */
@@ -83,6 +84,7 @@ public class DriverController extends Controller {
 
     /**
      * Delete Driver
+     * Safe Delete is used. in stead of delete a tag has been added to indicate the delete once
      * @param driverID
      * @return Result Object
      */
