@@ -173,7 +173,7 @@
                     android:textColor="@color/background"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="140dp"
                     android:background="@drawable/styled_button"/>
 
             </LinearLayout>
@@ -197,7 +197,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/title"
                     android:textSize="14sp"
-                    android:layout_marginStart="60dp"/>
+                    android:layout_marginLeft="50dp"/>
 
             </LinearLayout>
 

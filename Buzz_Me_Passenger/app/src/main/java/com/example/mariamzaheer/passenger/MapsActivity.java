@@ -1,28 +1,30 @@
 package com.example.mariamzaheer.passenger;
 
 import android.Manifest;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,9 +32,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -44,32 +51,82 @@ import java.util.Locale;
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private SearchView currentSearchView;
-    private EditText destinationEditText;
-
+    private EditText currentEditText;
+    private AutoCompleteTextView destinationAutoComplete;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
+    private Object destination;
+    private Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        SearchView destinationSearchView = (SearchView) findViewById(R.id.destinationSearchView);
-        // Make the search view text visible on load.
-//        destinationSearchView.setIconified(false);
-        // Set the hind on Destination search view.
-//        destinationSearchView.setQueryHint("Destination");
+        // Get the bus stops.
+        ArrayList<String> busStops = getBusStops();
 
-        // Set the hind on Destination search view
-//        currentSearchView = (SearchView) findViewById(R.id.currentSearchView);
-        destinationEditText = (EditText) findViewById(R.id.destinationEditText);
+        destinationAutoComplete = findViewById(R.id.destinationAutoComplete);
+        destinationAutoComplete.setThreshold(1);
+        destinationAutoComplete.setHint("Enter destination");
 
-        init();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, busStops);
+        destinationAutoComplete.setAdapter(adapter);
+
+        destinationAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                destination = destinationAutoComplete.getAdapter().getItem(position);
+            }
+        });
+
+        currentEditText = (EditText) findViewById(R.id.currentEditText);
+
+        // Happy face on click.
+        ImageView path = findViewById(R.id.path);
+        path.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (destination != null) {
+                    // Shift to the page showing the closest bus stop.
+                    Intent closestBusStopIntent = new Intent(MapsActivity.this, ClosestBusStop.class);
+                    // Pass the names of the current and destination locations.
+                    closestBusStopIntent.putExtra("Current", currentEditText.getText().toString());
+                    closestBusStopIntent.putExtra("Destination", destination.toString());
+
+                    // Get latlang for the bus stop name.
+                    LatLng destinationLatLang = getDestinationLatLang(destination.toString());
+
+                    // Add them to a bundle.
+                    Bundle args = new Bundle();
+                    args.putParcelable("CurrentLatLong", location);
+                    args.putParcelable("DestinationLatLong", destinationLatLang);
+
+                    // Pass them via the intent.
+                    closestBusStopIntent.putExtra("Location", args);
+                    startActivity(closestBusStopIntent);
+
+                } else {
+                    AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+                    alertDialog.setTitle("Alert");
+                    alertDialog.setMessage("Enter the destination.");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
+            }
+        });
     }
-
 
     /**
      * Manipulates the map once available.
@@ -101,7 +158,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
 
-        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
         if (location != null) {
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13));
 
@@ -120,7 +177,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // Make the search view text visible on load.
 //                currentSearchView.setIconified(false);
                 // Set the current location.
-//                currentSearchView.setQuery(currentLocation, false);
+                currentEditText.setText(currentLocation);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -128,52 +185,90 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    private void init() {
-        destinationEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH ||
-                        actionId == EditorInfo.IME_ACTION_DONE ||
-                        keyEvent.getAction() == KeyEvent.ACTION_DOWN ||
-                        keyEvent.getAction() == KeyEvent.KEYCODE_ENTER) {
-
-                    geoLocate();
-                }
-                return false;
-            }
-        });
-    }
-
-    private void geoLocate() {
-        String destination = destinationEditText.getText().toString();
-
-        Geocoder geocoder = new Geocoder(MapsActivity.this);
-        List<Address> addressList = new ArrayList<>();
-        try {
-
-            addressList = geocoder.getFromLocationName(destination, 1);
-
-        } catch (IOException e) {
-            Log.e("", e.getMessage());
-        }
-
-        if (addressList.size() > 0) {
-            Address address = addressList.get(0);
-
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(new LatLng(address.getLatitude(), address.getLongitude())) // Sets the center of the map to location user
-                    .zoom(15) // Sets the zoom
-                    .build(); // Creates a CameraPosition from the builder
-            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-            MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(address.getLatitude(), address.getLongitude())).title(address.getAddressLine(0));
-            googleMap.addMarker(markerOptions);
-
-            hideKeyboard();
-        }
-    }
-
     private void hideKeyboard() {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
+
+    /**
+     * Iterate the JSON file and get all the bus stops.
+     *
+     * @return Array list containing all the bus stops.
+     */
+    private ArrayList<String> getBusStops() {
+        ArrayList<String> busStops = new ArrayList<>();
+
+        try {
+            InputStream inputStream = getAssets().open("busStops.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String bus_stop_name = jsonObject.getString("Bus_Stop_Name");
+                busStops.add(bus_stop_name);
+            }
+
+        } catch (IOException e) {
+            Log.d("", "Couldn't open file");
+        } catch (JSONException e) {
+            Log.d("", "Couldn't parse json file");
+        }
+
+        return busStops;
+    }
+
+    /**
+     * Method to convert to bus stop name to lat lang.
+     *
+     * @param busStopName Bus stop name
+     * @return            LatLang value
+     */
+    private LatLng getDestinationLatLang(String busStopName) {
+        try {
+            InputStream inputStream = getAssets().open("busStops.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                if (jsonObject.optString("Bus_Stop_Name").equals(busStopName)) {
+                    Double latitude = Double.parseDouble(jsonObject.optString("Lat"));
+                    Double longitude = Double.parseDouble(jsonObject.optString("Long"));
+                    return new LatLng(latitude, longitude);
+                }
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+//    public void handle(View view) {
+//        Fragment selectedFragment;
+//
+//        if (view == findViewById(R.id.path)) {
+//            selectedFragment = new ClosestBusStop();
+//            fragmentManager = getFragmentManager();
+//            fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.map, selectedFragment);
+//            fragmentTransaction.commit();
+//        }
+//    }
 }

@@ -1,0 +1,128 @@
+[
+  {
+    "Bus_Stop_ID": "1",
+    "Long": "79.8595134",
+    "Lat": "6.8827575",
+    "Bus_Stop_Name": "Bambalapitiya Flats",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "2",
+    "Long": "79.8603045",
+    "Lat": "6.879902",
+    "Bus_Stop_Name": "St. Peter's",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "3",
+    "Long": "79.85746800899506",
+    "Lat": "6.894261135848381",
+    "Bus_Stop_Name": "Wellawatte Mosque",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "4",
+    "Long": "79.85825635514834",
+    "Lat": "6.891801411320247",
+    "Bus_Stop_Name": "Wellawatte Super Market",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "5",
+    "Long": "79.8626212",
+    "Lat": "6.8681375",
+    "Bus_Stop_Name": "Arpico",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "6",
+    "Long": "79.86381887093762",
+    "Lat": "6.8627752595544305",
+    "Bus_Stop_Name": "Roxy",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "7",
+    "Long": "79.864145",
+    "Lat": "6.860561",
+    "Bus_Stop_Name": "Attanayake Opticians",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "8",
+    "Long": "79.865014",
+    "Lat": "6.856732",
+    "Bus_Stop_Name": "Holy Family Convent - Dehiwala",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "9",
+    "Long": "79.86609935760498",
+    "Lat": "6.85042917889877",
+    "Bus_Stop_Name": "Dehiwala Junction",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "10",
+    "Long": "79.865944",
+    "Lat": "6.848930",
+    "Bus_Stop_Name": "",
+    "Route_Direction": "L"
+  },
+  {
+    "Bus_Stop_ID": "11",
+    "Long": "79.863531",
+    "Lat": "6.864092",
+    "Bus_Stop_Name": "Sampath Bank",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "12",
+    "Long": "79.864215",
+    "Lat": "6.861018",
+    "Bus_Stop_Name": "Municipal Council - Dehiwala",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "13",
+    "Long": "79.865060",
+    "Lat": "6.857294",
+    "Bus_Stop_Name": "Pizza Hut",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "14",
+    "Long": "79.8656796",
+    "Lat": "6.8514102",
+    "Bus_Stop_Name": "Dehiwala Junction",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "15",
+    "Long": "79.866451",
+    "Lat": "6.844186",
+    "Bus_Stop_Name": "Glitz",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "16",
+    "Long": "79.8623579",
+    "Lat": "6.8671356",
+    "Bus_Stop_Name": "Bodhirukkarama",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "17",
+    "Long": "79.86091645099691",
+    "Lat": "6.883965884220202",
+    "Bus_Stop_Name": "Mangala",
+    "Route_Direction": "R"
+  },
+  {
+    "Bus_Stop_ID": "18",
+    "Long": "79.8619587",
+    "Lat": "6.8717427",
+    "Bus_Stop_Name": "Wellawatte",
+    "Route_Direction": "R"
+  }
+]

@@ -20,6 +20,8 @@ public interface PassengerService {
      * @return             Message DTO containing the status and the passenger ID
      */
     MessageDTO addNewPassenger(PassengerDTO passengerDTO);
+    // TODO : HCI - When the proper data are note given
+    // TODO : Security - Handling the passwords and mobile numbers
 
     /**
      * Edit an existing passenger.
@@ -29,6 +31,8 @@ public interface PassengerService {
      * @return             Message DTO containing the status
      */
     MessageDTO updatePassenger(PassengerDTO passengerDTO, int passengerID);
+    // TODO : HCI - When the proper data are note given
+    // TODO : Security - Handling the passwords and mobile numbers
 
     /**
      * Delete an existing passenger.
@@ -37,6 +41,7 @@ public interface PassengerService {
      * @return             Message DTO containing the status
      */
     MessageDTO removePassenger(int passengerID);
+    // TODO : Security - If the passenger wishes he will be completely removed from the system
 
     /**
      * Retrieve passenger by ID.
@@ -54,6 +59,7 @@ public interface PassengerService {
      * @return               Message DTO containing the status
      */
     MessageDTO verifyPassenger(PassengerIDDTO passengerIDDTO);
+    // TODO : HCI - Provide necessary error messages if the passenger cannot be verified
 
     /**
      * Retrieve filtered recommended buses.

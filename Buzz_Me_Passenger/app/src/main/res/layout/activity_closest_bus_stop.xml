@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/relativeLayout"
-    tools:context="com.example.mariamzaheer.passenger.MapsActivity">
+    tools:context="com.example.mariamzaheer.passenger.ClosestBusStop">
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -16,14 +16,14 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.mariamzaheer.passenger.MapsActivity" />
+        tools:context="com.example.mariamzaheer.passenger.ClosestBusStop" />
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/relativeLayout1"
-        android:layout_width="290dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -38,21 +38,19 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/ic_magnify"
+            android:id="@+id/start"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_magnify"/>
+            android:src="@drawable/start"/>
 
-        <EditText
+        <TextView
             android:layout_width="290dp"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/ic_magnify"
-            android:layout_centerVertical="true"
-            android:textSize="15sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/currentTextView"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"
             android:textColor="@color/background"
-            android:id="@+id/currentEditText"
-            android:imeOptions="actionSearch"/>
-
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -60,9 +58,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/relativeLayout2"
-        android:layout_width="290dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,56 +68,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
-        android:background="@drawable/white_border"
-        android:layout_below="@+id/relativeLayout1">
-
-        <AutoCompleteTextView
-            android:id="@+id/destinationAutoComplete"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout3"
-        android:layout_below="@id/relativeLayout2"
-        android:layout_marginLeft="295dp">
+        android:background="@drawable/white_border">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/path"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/end"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/path"
-            android:background="@color/background"/>
+            android:src="@drawable/end"/>
 
+        <TextView
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/destinationTextView"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/background"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
-
-
-
-
-
-        <!--<SearchView-->
-            <!--android:id="@+id/currentSearchView"-->
-            <!--android:layout_width="290dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@color/white"-->
-            <!--android:textColor="@color/background"/>-->
-
-        <!--<SearchView-->
-            <!--android:id="@+id/destinationSearchView"-->
-            <!--android:layout_below="@id/currentSearchView"-->
-            <!--android:layout_width="290dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:background="@color/white"-->
-            <!--android:textColor="@color/background" />-->
 
 </RelativeLayout>
