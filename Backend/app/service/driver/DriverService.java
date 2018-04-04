@@ -19,63 +19,52 @@ public interface DriverService {
      * Add a new driver.
      *
      * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * @return             Status
      */
     MessageDTO addNewDriver(DriverDTO driverDTO);
 
 
     /**
-     * Add a new driver.
+     * Edit driver.
      *
      * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * @return             Status
      */
     MessageDTO editDriver(DriverDTO driverDTO, int driverID);
 
 
     /**
-     * Add a new driver.
+     * Delete driver.
      *
-     * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * @param driverID DTO containing passenger information
+     * @return             Status
      */
-    MessageDTO deleteDriver(DriverDTO driverDTO, int driverID);
+    MessageDTO deleteDriver(int driverID);
 
 
     /**
-     * Add a new driver.
+     * get Bus by ID.
      *
-     * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * @param busID DTO containing passenger information
+     * @return             Bus Details
+     * @throws Exception
      */
-    MessageDTO getBusbyId(DriverDTO driverDTO);
+    MessageDTO getBusbyId(int busID) throws Exception;
 
 
     /**
-     * Add a new driver.
+     * Login Driver
      *
      * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * @return             Status
      */
     MessageDTO loginDriver(DriverDTO driverDTO);
 
-
     /**
-     * Add a new driver.
-     *
-     * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
+     * Get Driver By ID
+     * @param driverID
+     * @return            Driver Details
+     * @throws Exception
      */
-    MessageDTO startRideDriver(DriverDTO driverDTO);
-
-
-    /**
-     * Add a new driver.
-     *
-     * @param driverDTO DTO containing passenger information
-     * @return             Success or fail status
-     */
-    MessageDTO updateSpeedOfTheBus(DriverDTO driverDTO);
-
     DriverDTO getDriverByID(int driverID) throws Exception;
 }

@@ -1,3 +1,4 @@
+
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
@@ -9,6 +10,7 @@
 # ~ Create a new passenger ~
 POST          /passenger/addNew                                   @controllers.PassengerController.addNewPassenger()
 #
+
 # ~ Edit a passenger ~
 PUT           /passenger/edit/:passengerID                        @controllers.PassengerController.editPassenger(passengerID : Integer)
 #
@@ -47,14 +49,56 @@ GET        /assets/*file        controllers.Assets.at(path="/public", file)
 #
 ## Driver
 #
-#POST          driver/addNew                            @controllers.PassengerController.addNewDriver()
-#PUT           driver/edit/:driverID                    @controllers.PassengerController.editDriver(driverID: Integer)
-#DELETE        driver/delete/:driverID                  @controllers.PassengerController.deleteDriver(driverID: Integer)
-#GET           driver/getBusByID/:driverID              @controllers.PassengerController.getBusbyId(driverID: Integer)
-#GET           driver/login                             @controllers.PassengerController.loginDriver()
-#POST          driver/startRide // Return ride ID       @controllers.PassengerController.startRideDriver()
-#PUT           driver/updateSpeed/:rideID/:speed        @controllers.PassengerController.updateSpeedOfTheDriver(rideID: Integer, speed: String)
-#PUT           driver/updateLocation/:rideID/:location  @controllers.PassengerController.updateSpeedOfTheDriver(rideID: Integer, location: String )
+
+#
+# ~ Create a new Driver ~
+POST          /driver/addNew                            @controllers.DriverController.addNewDriver()
+
+#
+# ~ Edit Driver ~
+PUT           /driver/edit/:driverID                    @controllers.DriverController.editDriver(driverID: Integer)
+
+#
+# ~ Delete Driver ~
+DELETE        /driver/delete/:driverID                  @controllers.DriverController.deleteDriver(driverID: Integer)
+
+#
+# ~ Get Driver by ID ~
+GET           /driver/getDriverByID/:driverID              @controllers.DriverController.getDriverByID(driverID: Integer)
+
+#
+# ~ Get Bus by ID ~
+GET           /driver/getBusByID/:busID              @controllers.DriverController.getBusbyId(busID: Integer)
+
+#
+# ~ Login Driver ~
+GET           /driver/login                             @controllers.DriverController.loginDriver()
+
+#
+# ~ Get Ride by ID ~
+GET           /driver/getRideByID/:rideID              @controllers.DriverController.getRideByID(rideID: Integer)
+
+
+#
+# ~ Start Ride ~
+#POST          /driver/startRide                         @controllers.DriverController.startRideDriver()
+#// Return ride ID
+
+#
+# ~ Update Speed ~
+#PUT           /driver/updateSpeed/:rideID/:speed        @controllers.DriverController.updateSpeed(rideID: Integer, speed: String)
+
+#
+# ~ Update Location ~
+#PUT           /driver/updateLocation/:rideID/:location  @controllers.DriverController.updateLocation(rideID: Integer, location: String )
+
+#
+# ~ Update no of people ~
+#PUT           /driver/updateNoOfPeople/:rideID/:noOfPeople  @controllers.DriverController.updateNoOfPeople(rideID: Integer, noOfPeople: String )
+
+
+# ~ Show Driver rating ~
+#GET           /driver/getRating/:driverID               @controllers.DriverController.showRatingOfTheDriver(driverID: Integer)
 #
 ## Owner
 #
@@ -65,4 +109,3 @@ GET        /assets/*file        controllers.Assets.at(path="/public", file)
 #GET           owner/login
 #GET           owner/checkReportByMonth/:year/:month // Return number of rides
 #GET           owner/checkReportByDate/:year/:month:/date // Return number of rides
-

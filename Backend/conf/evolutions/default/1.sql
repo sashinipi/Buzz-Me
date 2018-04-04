@@ -31,6 +31,17 @@ create table buzz_me.rating (
   constraint pk_rating primary key (rating_id)
 );
 
+create table buzz_me.ride (
+  ride_id                       integer auto_increment not null,
+  bus_id                        integer not null,
+  people_counter                integer not null,
+  current_location              varchar(255) not null,
+  current_speed                 varchar(255) not null,
+  time_stamp                    datetime(6) not null,
+  constraint pk_ride primary key (ride_id)
+);
+
+
 
 # --- !Downs
 
@@ -39,4 +50,6 @@ drop table if exists buzz_me.driver;
 drop table if exists buzz_me.passenger;
 
 drop table if exists buzz_me.rating;
+
+drop table if exists buzz_me.ride;
 
