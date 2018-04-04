@@ -226,6 +226,7 @@ public class DuringRideActivity extends AppCompatActivity implements OnMapReadyC
         String parameters = str_origin + "&" + str_dest + "&" + sensor+ "&" + mode;
 
         // Output format
+
         String output = "json";
 
         // Building the url to the web service
