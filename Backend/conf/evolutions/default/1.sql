@@ -3,6 +3,16 @@
 
 # --- !Ups
 
+create table buzz_me.driver (
+  driver_id                     integer auto_increment not null,
+  driver_name                   varchar(255) not null,
+  driver_nic                    varchar(255) not null,
+  driver_address                varchar(255) not null,
+  driver_password               varchar(255) not null,
+  time_stamp                    datetime(6) not null,
+  constraint pk_driver primary key (driver_id)
+);
+
 create table buzz_me.passenger (
   passenger_id                  integer auto_increment not null,
   passenger_name                varchar(255) not null,
@@ -19,19 +29,6 @@ create table buzz_me.rating (
   count                         integer not null,
   time_stamp                    datetime(6) not null,
   constraint pk_rating primary key (rating_id)
-);
-
-
-# --- !Downs
-
-create table buzz_me.driver (
-  driver_id                     integer auto_increment not null,
-  driver_name                   varchar(255) not null,
-  driver_nic                    varchar(255) not null,
-  driver_address                varchar(255) not null,
-  driver_password               varchar(255) not null,
-  time_stamp                    datetime(6) not null,
-  constraint pk_driver primary key (driver_id)
 );
 
 

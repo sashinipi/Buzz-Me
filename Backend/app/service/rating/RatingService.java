@@ -16,4 +16,5 @@ public interface RatingService {
      * @return          Message DTO containing the status
      */
     MessageDTO updateRating(RatingDTO ratingDTO);
+    // TODO: HCI - Get the proper rating
 }
