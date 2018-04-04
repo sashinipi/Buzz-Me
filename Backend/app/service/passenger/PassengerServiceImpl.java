@@ -2,16 +2,13 @@ package service.passenger;
 
 import com.google.inject.Inject;
 import dao.passenger.PassengerDao;
-import dao.rating.RatingDao;
-import dto.MessageDTO;
-import dto.PassengerDTO;
-import dto.PassengerIDDTO;
-import dto.RatingDTO;
+import dto.*;
 import io.ebean.Ebean;
 import models.PassengerModel;
-import models.RatingModel;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Implementation of passenger service.
@@ -20,12 +17,10 @@ import java.util.Date;
 public class PassengerServiceImpl implements PassengerService {
 
     private final PassengerDao passengerDao;
-    private final RatingDao ratingDao;
 
     @Inject
-    public PassengerServiceImpl(PassengerDao passengerDao, RatingDao ratingDao) {
+    public PassengerServiceImpl(PassengerDao passengerDao) {
         this.passengerDao = passengerDao;
-        this.ratingDao = ratingDao;
     }
 
     /**
@@ -158,48 +153,15 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     /**
-     * Update the rating.
+     * Retrieve filtered recommended buses.
      *
-     * @param ratingDTO DTO containing rating information
-     * @return          Message DTO containing the status
+     * @param mood        Mood of the passenger
+     * @param destination Destination
+     * @return            List of bus recommendations
      */
     @Override
-    public MessageDTO updateRating(RatingDTO ratingDTO) {
-        MessageDTO messageDTO = new MessageDTO();
-
-        try {
-            Ebean.beginTransaction();
-
-            // Retrieve the existing rating model for the bus ID.
-            RatingModel ratingByBusID = ratingDao.getRatingByBusID(ratingDTO.getBusID());
-
-            // Increase the passenger count who has given the rating for that particular bus.
-            int newCount = ratingByBusID.getCount() + 1;
-
-            // Get the existing rating for that bus.
-            int existingRating = ratingByBusID.getRating();
-
-            // Get the new rating for that bus.
-            int newRating = ratingDTO.getRating();
-
-            // Get modified average rating.
-            int modifiedRating = (existingRating + newRating) / newCount;
-
-            // Set the new rating to the model to be saved.
-            ratingByBusID.setRating(modifiedRating);
-
-            // Set the time stamps for the modification.
-            ratingByBusID.setTimeStamp(new Date());
-
-            // Update the rating.
-            ratingDao.updateRating(ratingByBusID);
-            messageDTO.setMessage("Success");
-
-
-        } catch (Exception e) {
-            Ebean.rollbackTransaction();
-            messageDTO.setMessage("Fail");
-        }
-        return null;
+    public List<RecommendedBusDTO> getRecommendedBuses(String mood, String destination) {
+        List<RecommendedBusDTO> recommendedBusDTOList = new ArrayList<>();
+        return recommendedBusDTOList;
     }
 }

@@ -1,7 +1,5 @@
 package dto;
 
-import sun.security.util.Password;
-
 /**
  * Created by Sashinip on 3/24/2018.
  */

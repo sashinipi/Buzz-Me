@@ -10,9 +10,6 @@ import play.mvc.Result;
 
 import java.io.IOException;
 
-import static play.mvc.Controller.request;
-import static play.mvc.Results.ok;
-
 /**
  * Controller class for handling the REST interface for all driver related calls.
  *
